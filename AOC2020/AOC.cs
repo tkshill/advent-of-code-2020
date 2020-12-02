@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 
-namespace Core
+namespace AOC
 {
-    interface Result
+    public interface IResult
     {
         string filepath();
         string PartOne(IEnumerable<string> input);

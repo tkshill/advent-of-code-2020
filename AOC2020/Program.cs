@@ -1,19 +1,16 @@
 ﻿using System;
-using DayTwo;
+using Results;
+using static Results.Results;
 using System.Collections.Generic;
 using System.IO;
-using Core;
+using AOC;
 
 namespace AOC2020
 {
-    public enum Day
-    {
-        Two
-    }
 
     class Program
     {
-        static (string, string) Run(Result result)
+        static (string, string) Run(IResult result)
         {
             try
             {
@@ -29,21 +26,19 @@ namespace AOC2020
         }
         static (string, string) RunDay(Day day)
         {
-            Result result;
+            IResult result;
 
-            if (day == Day.Two)
+            day switch
             {
-                result = new DayTwoResult();
-            }
-            else
-            {
-                throw new ArgumentOutOfRangeException("That Day has not been implemented yet.");
-            }
+                Day.One => result = Day1(),
+                Day.Two => result = Day2(),
+                _ => throw new ArgumentOutOfRangeException("That Day has not been implemented.");
+            };
             return Run(result);
         }
         static void Main(string[] args)
         {
-            (string part1, string part2) = RunDay(Day.Two);
+            (string part1, string part2) = RunDay(Day.One);
 
             Console.WriteLine("Part one result is: {0}\nPart Two result is: {1}", part1, part2);
         }

@@ -1,9 +1,9 @@
-using Core;
+using AOC;
 using System.Collections.Generic;
 
 namespace DayTwo
 {
-    public class DayTwoResult : Result
+    public class DayTwoResult : IResult
     {
         public string filepath() => "./DayTwo/input.txt";
 
@@ -13,8 +13,5 @@ namespace DayTwo
 
         public (string, string) AllParts(IEnumerable<string> input) => ("Not", "Implemented");
 
-
     }
-
-
 }
