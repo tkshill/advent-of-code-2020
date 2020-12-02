@@ -3,19 +3,16 @@ using Results;
 using static Results.Results;
 using System.Collections.Generic;
 using System.IO;
-using AOC;
 
 namespace AOC2020
 {
-
     class Program
     {
-        static (string, string) Run(IResult result)
+        static IEnumerable<string> FetchData(String filepath)
         {
             try
             {
-                IEnumerable<string> input = File.ReadAllLines(result.filepath());
-                return result.AllParts(input);
+                return File.ReadAllLines(filepath);
             }
             catch (IOException e)
             {
@@ -26,19 +23,18 @@ namespace AOC2020
         }
         static (string, string) RunDay(Day day)
         {
-            IResult result;
-
-            day switch
+            var result = day switch
             {
-                Day.One => result = Day1(),
-                Day.Two => result = Day2(),
-                _ => throw new ArgumentOutOfRangeException("That Day has not been implemented.");
+                Day.One => Day1(),
+                Day.Two => Day2(),
+                _ => throw new ArgumentOutOfRangeException("That Day has not been implemented.")
             };
-            return Run(result);
+            var input = FetchData(result.filepath());
+            return result.AllParts(input);
         }
         static void Main(string[] args)
         {
-            (string part1, string part2) = RunDay(Day.One);
+            (var part1, var part2) = RunDay(Day.One);
 
             Console.WriteLine("Part one result is: {0}\nPart Two result is: {1}", part1, part2);
         }

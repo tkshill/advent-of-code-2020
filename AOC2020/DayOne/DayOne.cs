@@ -10,16 +10,16 @@ namespace DayOne
 
         public string PartOne(IEnumerable<string> input)
         {
-            IEnumerable<int> inputNum = input.Select(int.Parse);
-            IEnumerable<int> pair = TryFindPair(inputNum);
+            var inputNum = input.Select(int.Parse);
+            var pair = TryFindPair(inputNum);
 
             return FindProduct(pair).ToString();
         }
 
         public string PartTwo(IEnumerable<string> input)
         {
-            IEnumerable<int> inputNum = input.Select(int.Parse);
-            IEnumerable<int> pair = TryFindTriplet(inputNum);
+            var inputNum = input.Select(int.Parse);
+            var pair = TryFindTriplet(inputNum);
 
             return FindProduct(pair).ToString();
         }
@@ -31,7 +31,7 @@ namespace DayOne
         {
             foreach (var (item, index) in input.Select((value, i) => (value, i)))
             {
-                IEnumerable<int> remaining = input.Skip(index + 1);
+                var remaining = input.Skip(index + 1);
                 foreach (int item2 in remaining)
                 {
                     int[] values = { item, item2 };
@@ -48,11 +48,11 @@ namespace DayOne
         {
             foreach (var (item, index) in input.Select((value, i) => (value, i)))
             {
-                IEnumerable<int> afterValueOne = input.Skip(index + 1);
+                var afterValueOne = input.Skip(index + 1);
 
                 foreach (var (item2, index2) in afterValueOne.Select((value, i) => (value, i)))
                 {
-                    IEnumerable<int> afterValueTwo = input.Skip(index2 + 1);
+                    var afterValueTwo = input.Skip(index2 + 1);
 
                     foreach (int item3 in afterValueTwo)
                     {
