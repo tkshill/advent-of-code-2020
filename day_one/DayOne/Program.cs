@@ -52,25 +52,20 @@ namespace DayOne
             return Enumerable.Empty<int>();
         }
 
-        static IEnumerable<int> FilePathToList(string filepath)
-        {
-            return File.ReadAllLines(filepath)
+        static IEnumerable<int> FilePathToList(string filepath) =>
+            File.ReadAllLines(filepath)
                 .Select(int.Parse);
-        }
 
-        static bool AreIntsEqualTo(int check, IEnumerable<int> values)
-        {
-            return (Enumerable.Sum(values) == check);
-        }
+        static bool AreIntsEqualTo(int check, IEnumerable<int> values) =>
+            (Enumerable.Sum(values) == check);
 
-        static IEnumerable<int> TryFindResults(Part part, IEnumerable<int> input)
-        {
-            if (part == Part.One)
+        static IEnumerable<int> TryFindResults(Part part, IEnumerable<int> input) =>
+            part switch
             {
-                return TryFindPair(input);
-            }
-            return TryFindTriplet(input);
-        }
+                Part.One => TryFindPair(input),
+                Part.Two => TryFindTriplet(input),
+                _ => throw new ArgumentOutOfRangeException()
+            };
 
         static void Main(string[] args)
         {
