@@ -14,10 +14,10 @@ namespace AOC2020
             {
                 return File.ReadAllLines(filepath);
             }
-            catch (IOException e)
+            catch (Exception e)
             {
                 if (e.Source is not null)
-                    Console.WriteLine("Check that file path buddy. {0}", e.Source);
+                    Console.WriteLine("Check that file again buddy. {0}", e.Source);
                 throw e;
             }
         }
@@ -34,7 +34,7 @@ namespace AOC2020
         }
         static void Main(string[] args)
         {
-            (var part1, var part2) = RunDay(Day.One);
+            (var part1, var part2) = RunDay(Day.Two);
 
             Console.WriteLine("Part one result is: {0}\nPart Two result is: {1}", part1, part2);
         }

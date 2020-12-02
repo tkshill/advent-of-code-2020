@@ -4,7 +4,7 @@ using AOC;
 
 namespace DayOne
 {
-    public class DayOneResult : IResult
+    public class Result : IResult
     {
         public string filepath() => "./DayOne/input.txt";
 

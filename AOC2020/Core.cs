@@ -11,7 +11,7 @@ namespace Results
     }
     public static class Results
     {
-        public static IResult Day1() => new DayOneResult();
-        public static DayTwoResult Day2() => new DayTwoResult();
+        public static IResult Day1() => new DayOne.Result();
+        public static IResult Day2() => new DayTwo.Result();
     }
 }
