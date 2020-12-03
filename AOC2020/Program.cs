@@ -8,19 +8,6 @@ namespace AOC2020
 {
     class Program
     {
-        static IEnumerable<string> FetchData(String filepath)
-        {
-            try
-            {
-                return File.ReadAllLines(filepath);
-            }
-            catch (Exception e)
-            {
-                if (e.Source is not null)
-                    Console.WriteLine("Check that file again buddy. {0}", e.Source);
-                throw e;
-            }
-        }
         static (string, string) RunDay(Day day)
         {
             var result = day switch
@@ -30,14 +17,15 @@ namespace AOC2020
                 Day.Three => Day3(),
                 _ => throw new ArgumentOutOfRangeException("That Day has not been implemented.")
             };
-            var input = FetchData(result.filepath());
+
+            IEnumerable<string> input = File.ReadAllLines(result.filepath());
             return result.AllParts(input);
         }
         static void Main(string[] args)
         {
             (var part1, var part2) = RunDay(Day.Two);
 
-            Console.WriteLine("Part one result is: {0}\nPart Two result is: {1}", part1, part2);
+            Console.WriteLine("Part One result is: {0}\nPart Two result is: {1}", part1, part2);
         }
     }
 }
