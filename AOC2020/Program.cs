@@ -1,4 +1,7 @@
-﻿using System;
+﻿#nullable enable annotations
+#nullable enable warnings
+
+using System;
 using Results;
 using static Results.Results;
 using System.Collections.Generic;
@@ -23,7 +26,7 @@ namespace AOC2020
         }
         static void Main(string[] args)
         {
-            (var part1, var part2) = RunDay(Day.Two);
+            (var part1, var part2) = RunDay(Day.Three);
 
             Console.WriteLine("Part One result is: {0}\nPart Two result is: {1}", part1, part2);
         }

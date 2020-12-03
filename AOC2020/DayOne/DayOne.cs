@@ -1,3 +1,6 @@
+#nullable enable annotations
+#nullable enable warnings
+
 using System.Collections.Generic;
 using System.Linq;
 using AOC;

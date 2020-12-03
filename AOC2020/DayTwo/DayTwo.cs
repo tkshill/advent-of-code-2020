@@ -14,9 +14,7 @@ namespace DayTwo
             Password = password;
         }
         public int First { get; }
-
         public int Second { get; }
-
         public char Key { get; }
         public string Password { get; }
     }
@@ -61,7 +59,6 @@ namespace DayTwo
         static bool IsValidPassWord1(Token token)
         {
             int count = token.Password.Count(x => x == token.Key);
-
             return (count >= token.First && count <= token.Second);
         }
 
