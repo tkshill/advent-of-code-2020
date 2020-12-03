@@ -27,6 +27,7 @@ namespace AOC2020
             {
                 Day.One => Day1(),
                 Day.Two => Day2(),
+                Day.Three => Day3(),
                 _ => throw new ArgumentOutOfRangeException("That Day has not been implemented.")
             };
             var input = FetchData(result.filepath());
