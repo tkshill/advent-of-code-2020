@@ -34,7 +34,7 @@ namespace AOC2020
         }
         static void Main(string[] args)
         {
-            (var part1, var part2) = RunDay(Day.Three);
+            (var part1, var part2) = RunDay(Day.Four);
 
             Console.WriteLine("Part One result is: {0}\nPart Two result is: {1}", part1, part2);
         }
